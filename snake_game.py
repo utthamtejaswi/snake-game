@@ -17,6 +17,10 @@ def text(breadth,length,snake_length,snake_breadth,points):
         text_box_snake = ((snake_breadth,snake_length))
         screen.blit(text_snake,text_box_snake)
 
+        text_points=font.render("points: "+str(points),10, (255, 255, 255))
+        text_box_points = ((350,50))
+        screen.blit(text_points,text_box_points)
+
 
 done = False
 length=random.randint(0,499)
