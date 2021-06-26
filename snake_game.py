@@ -9,7 +9,7 @@ pygame.display.set_caption("snake_game")
 
 
 def text(breadth,length,snake_length,snake_breadth,points):
-        text=font.render(".",10, (255, 255, 255))
+        text=font.render("*",10, (255, 255, 255))
         text_box = ((breadth,length))
         screen.blit(text,text_box)
 
