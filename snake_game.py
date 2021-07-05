@@ -9,7 +9,7 @@ pygame.display.set_caption("snake_game")
 
 
 def text(breadth,length,snake_length,snake_breadth,points):
-        text=font.render("*",10, (255, 255, 255))
+        text=font.render(".",10, (255, 255, 255))
         text_box = ((breadth,length))
         screen.blit(text,text_box)
 
@@ -23,8 +23,8 @@ def text(breadth,length,snake_length,snake_breadth,points):
 
 
 done = False
-length=random.randint(0,499)
-breadth=random.randint(0,499)
+length=random.randint(0,450)
+breadth=random.randint(0,450)
 snake_length=250
 snake_breadth=250
 points=5
@@ -35,6 +35,23 @@ while not done:
                 if event.type == pygame.QUIT:
                         quit()
                         exit()
-                                
+                if event.type == pygame.KEYDOWN:
+                        if event.key==pygame.K_r:
+                                screen.fill((0,0,0))
+                                points=5
+                                length=random.randint(0,450)
+                                breadth=random.randint(0,450)
+                        if event.key==pygame.K_UP:
+                                snake_length-=5
+                                screen.fill((0,0,0))
+                        if event.key==pygame.K_DOWN:
+                                snake_length+=5
+                                screen.fill((0,0,0))
+                        if event.key==pygame.K_LEFT:
+                                snake_breadth-=5
+                                screen.fill((0,0,0))
+                        if event.key==pygame.K_RIGHT:
+                                snake_breadth+=5
+                                screen.fill((0,0,0))
         text(length,breadth,snake_length,snake_breadth,points)
         pygame.display.flip()
