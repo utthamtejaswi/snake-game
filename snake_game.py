@@ -42,16 +42,16 @@ while not done:
                                 length=random.randint(0,450)
                                 breadth=random.randint(0,450)
                         if event.key==pygame.K_UP:
-                                snake_length-=5
+                                snake_length-=1
                                 screen.fill((0,0,0))
                         if event.key==pygame.K_DOWN:
-                                snake_length+=5
+                                snake_length+=1
                                 screen.fill((0,0,0))
                         if event.key==pygame.K_LEFT:
-                                snake_breadth-=5
+                                snake_breadth-=1
                                 screen.fill((0,0,0))
                         if event.key==pygame.K_RIGHT:
-                                snake_breadth+=5
+                                snake_breadth+=1
                                 screen.fill((0,0,0))
         text(length,breadth,snake_length,snake_breadth,points)
         pygame.display.flip()
