@@ -27,6 +27,8 @@ length=random.randint(0,450)
 breadth=random.randint(0,450)
 snake_length=250
 snake_breadth=250
+count_length=0
+count_breadth=0
 points=5
 
 
@@ -41,17 +43,35 @@ while not done:
                                 points=5
                                 length=random.randint(0,450)
                                 breadth=random.randint(0,450)
-                        if event.key==pygame.K_UP:
-                                snake_length-=1
-                                screen.fill((0,0,0))
-                        if event.key==pygame.K_DOWN:
-                                snake_length+=1
-                                screen.fill((0,0,0))
-                        if event.key==pygame.K_LEFT:
-                                snake_breadth-=1
-                                screen.fill((0,0,0))
-                        if event.key==pygame.K_RIGHT:
-                                snake_breadth+=1
-                                screen.fill((0,0,0))
+                        if event.type == pygame.KEYDOWN:
+                                if event.key==pygame.K_r:
+                                        screen.fill((0,0,0))
+                                        points=5
+                                        length=random.randint(0,450)
+                                        breadth=random.randint(0,450)
+                                if event.key==pygame.K_UP:
+                                        count_length=0
+                                        count_breadth=2
+                                if event.key==pygame.K_DOWN:
+                                        count_length=1
+                                        count_breadth=2
+                                if event.key==pygame.K_LEFT:
+                                        count_length=2
+                                        count_breadth=0
+                                if event.key==pygame.K_RIGHT:
+                                        count_length=2
+                                        count_breadth=1
+        if(count_length==0): 
+                snake_length-=0.1
+                screen.fill((0,0,0))
+        elif(count_length==1):
+                snake_length+=0.1
+                screen.fill((0,0,0))
+        elif(count_breadth==0):
+                snake_breadth-=0.1
+                screen.fill((0,0,0))
+        elif(count_breadth==1):
+                snake_breadth+=0.1
+                screen.fill((0,0,0))
         text(length,breadth,snake_length,snake_breadth,points)
         pygame.display.flip()
